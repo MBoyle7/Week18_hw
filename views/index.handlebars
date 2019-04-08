@@ -1,0 +1,14 @@
+<div class="results">
+    <div class="row">
+        <div class="col">
+            <h3>Click the "Scrape New Articles" button to find the most recent news stories!</h3>
+        </div>
+        <div class="col">
+            {{#each Articles}}
+            <div class="card-view">
+                <h4>{{this.title}}</h4>
+                <a href="/readArticle/{{this._id}}" id="btn-danger" >Read Article</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -17,6 +17,17 @@ const exphb = require("express-handlebars");
 app.engine("handlebars", exphb({ defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
+mongoose.connect("mongodb://localhost/week18_hw");
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "connection error:"));
+db.once("open", function() {
+    console.log("Connected to Mongoose");
+});
+
+app.get("/", (req, res) => {
+    res.render("index", {});
+});
+
 const port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log("Listen successful on PORT " + port);
